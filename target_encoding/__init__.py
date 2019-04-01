@@ -1,0 +1,6 @@
+from target_encoding.target_encoding import TargetEncoder
+from target_encoding.target_encoding import TargetEncoderClassifier
+from target_encoding.target_encoding import TargetEncoderRegressor
+
+from target_encoding.target_encoding import __version__
+

@@ -1,0 +1,6 @@
+
+\.idea/
+
+target_encoding/__pycache__/
+
+tests/__pycache__/
