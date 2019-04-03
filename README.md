@@ -1,5 +1,57 @@
 This package gives you the opportunity to use a Target mean Encoding.
 
+TargetEncoder - The algorithm encodes all features that are submitted to the input based on the target.
+
+Parameters:
+
+    alpha: float or int, smoothing for generalization.
+![fifth](img/5.png)
+
+    max_unique: int, maximum number of unique values in a feature. 
+                If there are more unique values inside the feature,
+                then the algorithm will split this feature into bins, 
+                the number of max_unique.
+                
+    split: list of int or cross-validator class,
+                if split is [], then algorithm will encode features without cross-validation
+                This situation features will overfit on target
+
+                if split len is 1 for example [5], algorithm will encode features by using cross-validation on 5 folds
+                This situation you will not overfit on tests, but when you will validate, your score will overfit
+
+                if split len is 2 for example [5, 3], algorithm will separate data on 5 folds, afterwords
+                will encode features by using cross-validation on 3 folds
+                This situation is the best way to avoid overfit, but algorithm will use small data for encode.
+---
+TargetEncoderRegressor - The algorithm encodes all feature and then takes the average of encoded features as prediction.
+
+    alpha: float or int, smoothing for generalization.
+
+    max_unique: int, maximum number of unique values in a feature. 
+                If there are more unique values inside the feature,
+                then the algorithm will split this feature into bins, 
+                the number of max_unique.
+    
+    used_features: int, this is a number of used features for prediction
+                   The algorithm encodes all features with the average value of the target, 
+                   then the std is considered inside each feature,
+                   and "used_features" features with the highest std are selected to use only informative features. 
+---
+TargetEncoderClassifier - The algorithm encodes all feature and then takes the average of encoded features as prediction.
+
+    alpha: float or int, smoothing for generalization.
+
+    max_unique: int, maximum number of unique values in a feature. 
+                If there are more unique values inside the feature,
+                then the algorithm will split this feature into bins, 
+                the number of max_unique.
+    
+    used_features: int, this is a number of used features for prediction
+                   The algorithm encodes all features with the average value of the target, 
+                   then the std is considered inside each feature,
+                   and "used_features" features with the highest std are selected to use only informative features. 
+             
+---
 Categorical features can be encoded in several ways. The first method is to encode just numbers from 0 to n-1, where n is the number of unique values. Such an encoding is called LabelEncoding.
 
 ![first](img/1.png)
