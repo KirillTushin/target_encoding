@@ -9,26 +9,23 @@ from target_encoding import __version__
 with open(join(dirname(__file__), 'README.md')) as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
-setup(
-    name='target_encoding',
-    version=__version__,
-    packages=find_packages(),
-    author='Tushin Kirill',
-    author_email='kirya.tushin1@yandex.ru',
-    include_package_data=True,
-    long_description=open(join(dirname(__file__), 'README.md')).read(),
-    install_requires=[
-        'numpy==1.16.2',
-        'scikit-learn==0.20.3',
-    ],
-    url="https://github.com/KirillTushin/target_encoding",
-    test_suite='tests',
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ],
-)
+with open('requirements.txt') as requirements_file:
+    INSTALL_REQUIRES = '\n'.join(requirements_file.readlines())
+
+NAME = 'target_encoding'
+VERSION = __version__
+PACKAGES = find_packages()
+URL = 'https://github.com/KirillTushin/target_encoding'
+LICENSE = 'MIT'
+AUTHOR = 'Tushin Kirill'
+AUTHOR_EMAIL = 'tushin.ka@phystech.edu'
+DESCRIPTION = 'Module for target encoding'
+TEST_SUITE = 'tests'
+CLASSIFIERS = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 
 setup(
     name=NAME,
