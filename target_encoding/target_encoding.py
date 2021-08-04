@@ -8,7 +8,7 @@ from sklearn.model_selection import check_cv, BaseCrossValidator
 
 from target_encoding.utils import TargetStatistic, cv_splitter
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 
 class BaseTargetEncoder:
