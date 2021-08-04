@@ -1,15 +1,20 @@
 """Setup for target encoding module"""
 
-from os.path import join, dirname
+from os import path
 
 from setuptools import setup, find_packages
 
 from target_encoding import __version__
 
-with open(join(dirname(__file__), 'README.md')) as readme_file:
+
+this_directory = path.abspath(path.dirname(__file__))
+README_PATH = path.join(this_directory, 'README.md')
+REQUIREMENTS_PATH = path.join(this_directory, 'requirements.txt')
+
+with open(README_PATH, encoding='utf-8') as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
-with open('requirements.txt') as requirements_file:
+with open(REQUIREMENTS_PATH, encoding='utf-8') as requirements_file:
     INSTALL_REQUIRES = '\n'.join(requirements_file.readlines())
 
 NAME = 'target_encoding'
@@ -40,5 +45,6 @@ setup(
     install_requires=INSTALL_REQUIRES,
     test_suite=TEST_SUITE,
     classifiers=CLASSIFIERS,
+    long_description_content_type='text/markdown',
     include_package_data=True,
 )
