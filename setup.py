@@ -1,5 +1,6 @@
 """Setup for target encoding module"""
 
+import io
 from os import path
 
 from setuptools import setup, find_packages
@@ -9,17 +10,17 @@ from target_encoding import __version__
 
 this_directory = path.abspath(path.dirname(__file__))
 README_PATH = path.join(this_directory, 'README.md')
-REQUIREMENTS_PATH = 'requirements.txt'
+REQUIREMENTS_PATH = path.join(this_directory, 'requirements.txt')
 
 with open(README_PATH, encoding='utf-8') as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
-with open(REQUIREMENTS_PATH, encoding='utf-8') as requirements_file:
-    INSTALL_REQUIRES = '\n'.join(requirements_file.readlines())
+with io.open(REQUIREMENTS_PATH, 'r') as requirements_file:
+    INSTALL_REQUIRES = requirements_file.read().splitlines()
 
 NAME = 'target_encoding'
 VERSION = __version__
-PACKAGES = find_packages()
+PACKAGES = find_packages(exclude=("tests",))
 URL = 'https://github.com/KirillTushin/target_encoding'
 LICENSE = 'MIT'
 AUTHOR = 'Tushin Kirill'
@@ -37,6 +38,7 @@ setup(
     version=VERSION,
     packages=PACKAGES,
     url=URL,
+    download_url=URL,
     license=LICENSE,
     author=AUTHOR,
     author_email=AUTHOR_EMAIL,

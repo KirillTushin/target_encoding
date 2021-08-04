@@ -177,4 +177,5 @@ ___
 Requirements:
     numpy>=1.16.2
     scikit-learn>=0.20.3
+    pandas>=1.1.0
 ```
