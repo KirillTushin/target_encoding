@@ -1,8 +1,13 @@
-from setuptools import setup, find_packages
+"""Setup for target encoding module"""
+
 from os.path import join, dirname
 
-from target_encoding.target_encoding import __version__
+from setuptools import setup, find_packages
 
+from target_encoding import __version__
+
+with open(join(dirname(__file__), 'README.md')) as readme_file:
+    LONG_DESCRIPTION = readme_file.read()
 
 setup(
     name='target_encoding',
@@ -25,4 +30,18 @@ setup(
     ],
 )
 
-
+setup(
+    name=NAME,
+    version=VERSION,
+    packages=PACKAGES,
+    url=URL,
+    license=LICENSE,
+    author=AUTHOR,
+    author_email=AUTHOR_EMAIL,
+    description=DESCRIPTION,
+    long_description=LONG_DESCRIPTION,
+    install_requires=INSTALL_REQUIRES,
+    test_suite=TEST_SUITE,
+    classifiers=CLASSIFIERS,
+    include_package_data=True,
+)
