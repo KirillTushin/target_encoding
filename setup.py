@@ -9,7 +9,7 @@ from target_encoding import __version__
 
 this_directory = path.abspath(path.dirname(__file__))
 README_PATH = path.join(this_directory, 'README.md')
-REQUIREMENTS_PATH = path.join(this_directory, 'requirements.txt')
+REQUIREMENTS_PATH = 'requirements.txt'
 
 with open(README_PATH, encoding='utf-8') as readme_file:
     LONG_DESCRIPTION = readme_file.read()

@@ -5,7 +5,6 @@ from dataclasses import dataclass, field
 from typing import Any, Union, Tuple, Dict, List
 
 import numpy as np
-import numpy.typing as npt
 from sklearn.model_selection import check_cv, BaseCrossValidator
 
 
@@ -33,14 +32,14 @@ class TargetStatistic:
 
     def fit(
             self,
-            x_array: npt.ArrayLike,
-            target_array: npt.ArrayLike,
+            x_array: np.ndarray,
+            target_array: np.ndarray,
     ) -> None:
         """Fit statistics for target encoding.
 
         Args:
-            x_array (npt.ArrayLike): data to transform by target encoding.
-            target_array (npt.ArrayLike): targets for encoding "x_array".
+            x_array (np.ndarray): data to transform by target encoding.
+            target_array (np.ndarray): targets for encoding "x_array".
 
         Returns:
             None
@@ -69,8 +68,8 @@ class TargetStatistic:
 
 
 def cv_splitter(
-        indexes: npt.ArrayLike,
-        target_array: npt.ArrayLike,
+        indexes: np.ndarray,
+        target_array: np.ndarray,
         split: Tuple[Union[int, BaseCrossValidator]] = (3, 3),
 ) -> List[Tuple[List[int], List[int]]]:
     """Function to create train and test indexes to fit target encoding.
